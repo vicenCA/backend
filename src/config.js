@@ -8,5 +8,5 @@ export default{
     dbPassword: process.env.DB_PASSWORD || '',
     dbServer: process.env.DB_SERVER || '',
     dbDataBase: process.env.DB_DATABASE || '',
-    dbPort: process.env.DB_PORT || 1433
+    dbPort: parseInt(process.env.DB_PORT, 10)
 }

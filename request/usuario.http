@@ -2,6 +2,9 @@
 
 @api = http://localhost:3000/usuario
 
+###
+@apic = http://localhost:3000/cuidador
+
 GET {{api}}
 
 ### CREATE
@@ -38,4 +41,46 @@ Content-Type: application/json
     "correo_electronico": "yoru@valorant.com",
     "direccion": "atlantico",
     "numero_cel": "97653297"
+}
+
+
+###
+
+PUT {{api}}/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre_usuario": "Dana",
+    "clave_usuario": "password",
+    "rut": "20.360.824-1",
+    "correo_electronico": "dana@mail.com",
+    "direccion": "7 Poniente",
+    "numero_cel": 56971244743,
+    "tipousuario": 1
+}
+
+###
+
+POST {{apic}}  HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre_usuario": "Tobías",
+    "clave_usuario": "password",
+    "rut": "29.456.987-4",
+    "correo_electronico": "toby@mail.com",
+    "direccion": "3 Oriente",
+    "numero_cel": 56971534643,
+    "tipousuario": 2
+}
+
+
+###
+
+GET {{api}}/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre_usuario": "Tobías",
+    "tipousuario": 2
 }

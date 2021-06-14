@@ -1,0 +1,44 @@
+@api = http://localhost:3000/mascota
+@count = amount
+
+### GET
+
+GET {{api}} HTTP/1.1
+
+### GET ID 
+
+GET {{api}}/5 HTTP/1.1
+
+### GET COUNT
+
+GET {{api}}/{{count}} HTTP/1.1
+
+### CREATE 
+
+POST {{api}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre_mascota": "Akamaru",
+    "raza": "Shih Tzu",
+    "sexo_mascota": "Masculino",
+    "edad": 7,
+    "peso": 6.3
+}
+
+### UPDATE
+
+PUT {{api}}/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre_mascota": "Django",
+    "raza": "Shiba Inu",
+    "sexo_mascota": "Masculino",
+    "edad": 2,
+    "peso": 15.2
+}
+
+### DELETE
+
+DELETE {{api}}/2 HTTP/1.1
