@@ -36,10 +36,10 @@ export const getServiciosTotal = async (req, res) => {
 }
 
 export const createNewServicio = async (req, res) => {
-    const { fecha_solicitud, hora_solicitud, direccion_usuario, mascota, tiposervicio } = req.body;
+    const { fecha_solicitud, hora_solicitud, direccion_usuario, mascota, tiposervicio, idusuario } = req.body;
     let { duracion_paseo, agregado } = req.body;
 
-    if (fecha_solicitud == null || hora_solicitud == null || direccion_usuario == null || mascota == null || tiposervicio == null) {
+    if (fecha_solicitud == null || hora_solicitud == null || direccion_usuario == null || mascota == null || tiposervicio == null || idusuario == null) {
         res.status(400).json({msg: 'Bad Request. Please, fill all flieds.'});
     }
     
@@ -56,9 +56,10 @@ export const createNewServicio = async (req, res) => {
                                     .input("mascota",sql.VarChar, mascota)
                                     .input("agregado",sql.Text, agregado)
                                     .input("tiposervicio",sql.Int, tiposervicio)
+                                    .input("idusuario",sql.Int, idusuario)
                                     .query(queries.addNewServicio)
     
-        res.json({fecha_solicitud, hora_solicitud, direccion_usuario, duracion_paseo, mascota, agregado, tiposervicio });
+        res.json({fecha_solicitud, hora_solicitud, direccion_usuario, duracion_paseo, mascota, agregado, tiposervicio, idusuario });
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -66,10 +67,10 @@ export const createNewServicio = async (req, res) => {
 }   
 
 export const updateServicioByID = async (req, res) => {
-    const { fecha_solicitud, hora_solicitud, direccion_usuario, duracion_paseo, mascota, agregado, tiposervicio } = req.body;
+    const { fecha_solicitud, hora_solicitud, direccion_usuario, duracion_paseo, mascota, agregado, tiposervicio, idusuario } = req.body;
     const { id_servicio } = req.params;
 
-    if (fecha_solicitud == null || hora_solicitud == null || direccion_usuario == null || duracion_paseo == null || mascota == null || agregado == null || tiposervicio  == null){
+    if (fecha_solicitud == null || hora_solicitud == null || direccion_usuario == null || duracion_paseo == null || mascota == null || agregado == null || tiposervicio  == null || idusuario == null){
         return res.status(400).json({msg: 'Bad Request. Miss fill some field.'});
     }
 
@@ -82,9 +83,10 @@ export const updateServicioByID = async (req, res) => {
                         .input("agregado", sql.Text, agregado)
                         .input("tiposervicio", sql.Int, tiposervicio)
                         .input("id_servicio", sql.Int, id_servicio)
+                        .input("idusuario", sql.Int, idusuario)
                         .query(queries.updateServicioById);
 
-    res.json({ fecha_solicitud, hora_solicitud, direccion_usuario, duracion_paseo, mascota, agregado, tiposervicio });
+    res.json({ fecha_solicitud, hora_solicitud, direccion_usuario, duracion_paseo, mascota, agregado, tiposervicio, idusuario });
 }
 
 export const deleteServicio = async (req, res) => {

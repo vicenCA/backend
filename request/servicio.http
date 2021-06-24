@@ -18,12 +18,13 @@ POST {{api}} HTTP/1.1
 Content-Type: application/json
 
 {
-    "fecha_solicitud": "12-06-2021",
-    "hora_solicitud": "2021-06-13T23:02:00.000Z",
-    "direccion_usuario": "Lago Villarrica 650",
-    "duracion_paseo": "30 minutos",
-    "mascota": "Django",
-    "tiposervicio": 1
+    "fecha_solicitud": "2021-06-21",
+    "hora_solicitud": "2021-06-13T22:16:00.000Z",
+    "direccion_usuario": "7 Poniente",
+    "duracion_paseo": "45 minutos",
+    "mascota": "Akamaru",
+    "tiposervicio": 1,
+    "idusuario": 1
 }
 
 ### 
@@ -38,7 +39,8 @@ Content-Type: application/json
     "duracion_paseo": "1 hora",
     "mascota": "Django",
     "agregado": "Paseo exclusivo por la plaza",
-    "tiposervicio": 1
+    "tiposervicio": 1,
+    "idusuario": 2
 }
 
 
