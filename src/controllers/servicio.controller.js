@@ -41,6 +41,7 @@ export const createNewServicio = async (req, res) => {
 
     if (fecha_solicitud == null || hora_solicitud == null || direccion_usuario == null || mascota == null || tiposervicio == null || idusuario == null) {
         res.status(400).json({msg: 'Bad Request. Please, fill all flieds.'});
+        console.log(req.body);
     }
     
     if (duracion_paseo == null) duracion_paseo = "No especificado.";
@@ -49,8 +50,8 @@ export const createNewServicio = async (req, res) => {
     try {
         const pool = await getConnection();
         const result = await pool.request()
-                                    .input("fecha_solicitud",sql.Date, fecha_solicitud)
-                                    .input("hora_solicitud",sql.Time, hora_solicitud)
+                                    .input("fecha_solicitud",sql.VarChar, fecha_solicitud)
+                                    .input("hora_solicitud",sql.VarChar, hora_solicitud)
                                     .input("direccion_usuario",sql.Text, direccion_usuario)
                                     .input("duracion_paseo", sql.VarChar, duracion_paseo)
                                     .input("mascota",sql.VarChar, mascota)
@@ -75,8 +76,8 @@ export const updateServicioByID = async (req, res) => {
     }
 
     const pool = await getConnection();
-    await pool.request().input("fecha_solicitud", sql.Date, fecha_solicitud)
-                        .input("hora_solicitud", sql.Time, hora_solicitud)
+    await pool.request().input("fecha_solicitud", sql.VarChar, fecha_solicitud)
+                        .input("hora_solicitud", sql.VarChar, hora_solicitud)
                         .input("direccion_usuario", sql.Text, direccion_usuario)
                         .input("duracion_paseo", sql.VarChar, duracion_paseo)
                         .input("mascota", sql.VarChar, mascota)

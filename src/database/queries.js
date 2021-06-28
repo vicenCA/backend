@@ -3,13 +3,14 @@ export const queries = {
     /* -----------------------------------------------------------------------  */
     /*                                 USUARIO                                  */
     getAllUsuarios: 'SELECT * FROM usuario',
-    addNewUsuario: 'INSERT INTO usuario VALUES (@nombre_usuario, @clave_usuario, @rut, @correo_electronico, @direccion, @numero_cel, @tipousuario)',
+    addNewUsuario: 'INSERT INTO usuario VALUES (@nombre_usuario, @apellido_usuario, @clave_usuario, @rut, @correo_electronico, @direccion, @numero_cel, @tipousuario)',
     getUsuarioById: "SELECT * FROM usuario WHERE id_usuario = @id_usuario",
     deleteUsuario: 'DELETE FROM [GCC].[dbo].[usuario] WHERE id_usuario = @id_usuario',
     getTotalUsuarios: 'SELECT COUNT(*) FROM usuario',
-    updateUsuarioById: 'UPDATE usuario SET nombre_usuario = @nombre_usuario, clave_usuario = @clave_usuario, rut = @rut, correo_electronico = @correo_electronico, direccion = @direccion, numero_cel = @numero_cel, tipousuario = @tipousuario WHERE id_usuario = @id_usuario',
+    updateUsuarioById: 'UPDATE usuario SET nombre_usuario = @nombre_usuario, apellido_usuario = @apellido_usuario, clave_usuario = @clave_usuario, rut = @rut, correo_electronico = @correo_electronico, direccion = @direccion, numero_cel = @numero_cel, tipousuario = @tipousuario WHERE id_usuario = @id_usuario',
     getUsuarioByType: 'SELECT * FROM usuario WHERE tipousuario = @tipousuario',
     getTotalUsuariosByType: 'SELECT COUNT(*) FROM usuario WHERE tipousuario = @tipousuario',
+    getUsuariobyEmail: 'SELECT * FROM usuario WHERE correo_electronico = @correo_electronico',
     /* ------------------------------------------------------------------------- */
     /*                                 MASCOTA                                   */
     getAllMascotas: 'SELECT * FROM mascota',

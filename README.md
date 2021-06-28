@@ -34,4 +34,14 @@ Para descargar SQL Server Management Studio:
 
 https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15
 
+# Creación de Usuario
+
+Dentro de SQL Server Management Studio, dentro de la instancia creada, clickeé en Security, y luego click derecho en Logins y a la opción de New Login...
+Dentro de la ventana, seleccione la opción de SQL Server Authetication, en login name: admingcc y en password: gestion123, confirme la password.
+Por último, en las opicones de Select a page, en Server Roles, coloque un tick en sysadmin y luego en OK.
+
+# Tablas y base de datos
+
+Último paso, copie y pegue en una nueva consulta la query que está esta carpeta nombrada como 'database.sql' y execute.
+
 :)
