@@ -44,4 +44,8 @@ Por último, en las opicones de Select a page, en Server Roles, coloque un tick 
 
 Último paso, copie y pegue en una nueva consulta la query que está esta carpeta nombrada como 'database.sql' y execute.
 
+# Problemas
+
+Si tiene problemas con un 'request' undefinied al abrir ejemplo localhost:3000/servicio, reinicie su ordenador o los servicios de sql server.
+
 :)

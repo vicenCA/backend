@@ -28,7 +28,7 @@ export const queries = {
     getServicioByUser: 'SELECT * FROM servicio WHERE idusuario = @idusuario',
     getTotalServicios: 'SELECT COUNT(id_servicio) FROM servicio',
     getTotalServiciosbyUser: 'SELECT COUNT(*) FROM servicio WHERE idusuario = @idusuario',
-    addNewServicio: 'INSERT INTO servicio VALUES (@fecha_solicitud,	@hora_solicitud, @direccion_usuario, @duracion_paseo, @mascota,	@agregado, @tiposervicio, @idusuario)',
-    updateServicioById: 'UPDATE servicio SET fecha_solicitud = @fecha_solicitud, hora_solicitud = @hora_solicitud, direccion_usuario = @direccion_usuario, duracion_paseo = @duracion_paseo, mascota = @mascota, agregado = @agregado, tiposervicio = @tiposervicio, idusuario = @idusuario WHERE id_servicio = @id_servicio',
+    addNewServicio: 'INSERT INTO servicio VALUES (@fecha_solicitud,	@hora_solicitud, @direccion_usuario, @duracion_paseo, @mascota,	@agregado, @tiposervicio, @idusuario, @insumos, @peluqueria)',
+    updateServicioById: 'UPDATE servicio SET fecha_solicitud = @fecha_solicitud, hora_solicitud = @hora_solicitud, direccion_usuario = @direccion_usuario, duracion_paseo = @duracion_paseo, mascota = @mascota, agregado = @agregado, tiposervicio = @tiposervicio, idusuario = @idusuario, insumos = @insumos, peluqueria = @peluqueria WHERE id_servicio = @id_servicio',
     deleteServicio: 'DELETE FROM servicio WHERE id_servicio = @id_servicio'
 }
