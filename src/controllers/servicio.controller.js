@@ -98,3 +98,37 @@ export const deleteServicio = async (req, res) => {
     
     res.sendStatus(204);
 }
+
+export const getTotalServiciosByUser = async (req, res) => {
+    const { idusuario } = req.params;
+    try {
+        const pool = await getConnection()
+        const result = await pool
+        .request()
+        .input("idusuario",sql.Int,idusuario)
+        .query(queries.getTotalServiciosbyUser)
+        console.log(result);
+        
+        res.json(result.recordset[0][''])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+
+}
+
+export const getServicioByUser = async (req, res) => {
+    const { idusuario } = req.params;
+    try {
+        const pool = await getConnection()
+        const result = await pool
+        .request()
+        .input("idusuario",sql.Int,idusuario)
+        .query(queries.getServicioByUser)
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+
+}

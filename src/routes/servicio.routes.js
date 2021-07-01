@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createNewServicio, deleteServicio, getServicioByID, getServicios, getServiciosTotal, updateServicioByID } from '../controllers/servicio.controller';
+import { createNewServicio, deleteServicio, getServicioByID, getServicioByUser, getServicios, getServiciosTotal, getTotalServiciosByUser, updateServicioByID } from '../controllers/servicio.controller';
 
 const router = Router();
 
@@ -16,5 +16,9 @@ router.delete('/servicio/:id_servicio', deleteServicio)
 router.get('/servicio/:id_servicio', getServicioByID)
 
 router.get('/servicio', getServicios)
+
+router.get('/servicio/count/:idusuario', getTotalServiciosByUser)
+
+router.get('/servicio/usuario/:idusuario', getServicioByUser)
 
 export default router

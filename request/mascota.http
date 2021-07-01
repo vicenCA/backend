@@ -19,11 +19,12 @@ POST {{api}} HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre_mascota": "Akamaru",
+    "nombre_mascota": "Cachupin",
     "raza": "Shih Tzu",
     "sexo_mascota": "Masculino",
     "edad": 7,
-    "peso": 6.3
+    "peso": 6.3,
+    "idusuario": 13
 }
 
 ### UPDATE
@@ -42,3 +43,13 @@ Content-Type: application/json
 ### DELETE
 
 DELETE {{api}}/2 HTTP/1.1
+
+
+###
+
+GET {{api}}/usuario/13 HTTP/1.1
+
+
+###
+
+GET {{api}}/{{count}}/5 HTTP/1.1

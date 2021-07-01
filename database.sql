@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [GCC]    Script Date: 27-06-2021 22:26:59 ******/
+/****** Object:  Database [GCC]    Script Date: 01-07-2021 0:32:44 ******/
 CREATE DATABASE [GCC]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [GCC] SET QUERY_STORE = OFF
 GO
 USE [GCC]
 GO
-/****** Object:  Table [dbo].[mascota]    Script Date: 27-06-2021 22:26:59 ******/
+/****** Object:  Table [dbo].[mascota]    Script Date: 01-07-2021 0:32:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -94,13 +94,17 @@ CREATE TABLE [dbo].[mascota](
 	[sexo_mascota] [varchar](10) NOT NULL,
 	[edad] [int] NULL,
 	[peso] [float] NULL,
+	[codigo_chip] [varchar](50) NULL,
+	[foto_mascota] [image] NULL,
+	[idusuario] [int] NULL,
+	[fecha_nacimiento] [date] NULL,
  CONSTRAINT [PK_mascota] PRIMARY KEY CLUSTERED 
 (
 	[id_mascota] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[servicio]    Script Date: 27-06-2021 22:26:59 ******/
+/****** Object:  Table [dbo].[servicio]    Script Date: 01-07-2021 0:32:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -121,7 +125,7 @@ CREATE TABLE [dbo].[servicio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[solicitud]    Script Date: 27-06-2021 22:26:59 ******/
+/****** Object:  Table [dbo].[solicitud]    Script Date: 01-07-2021 0:32:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,7 +140,7 @@ CREATE TABLE [dbo].[solicitud](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tipo_servicio]    Script Date: 27-06-2021 22:26:59 ******/
+/****** Object:  Table [dbo].[tipo_servicio]    Script Date: 01-07-2021 0:32:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -150,7 +154,7 @@ CREATE TABLE [dbo].[tipo_servicio](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tipo_usuario]    Script Date: 27-06-2021 22:26:59 ******/
+/****** Object:  Table [dbo].[tipo_usuario]    Script Date: 01-07-2021 0:32:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,21 +168,22 @@ CREATE TABLE [dbo].[tipo_usuario](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[usuario]    Script Date: 27-06-2021 22:26:59 ******/
+/****** Object:  Table [dbo].[usuario]    Script Date: 01-07-2021 0:32:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[usuario](
 	[id_usuario] [int] IDENTITY(1,1) NOT NULL,
-	[nombre_usuario] [varchar](20) NOT NULL,
-	[apellido_usuario] [varchar](20) NOT NULL,
+	[nombre_usuario] [varchar](40) NOT NULL,
+	[apellido_usuario] [varchar](40) NOT NULL,
 	[clave_usuario] [varchar](20) NOT NULL,
 	[rut] [varchar](12) NULL,
 	[correo_electronico] [varchar](30) NOT NULL,
 	[direccion] [text] NULL,
 	[numero_cel] [bigint] NULL,
 	[tipousuario] [int] NOT NULL,
+	[foto_perfil] [image] NULL,
  CONSTRAINT [PK_usuario] PRIMARY KEY CLUSTERED 
 (
 	[id_usuario] ASC

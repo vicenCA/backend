@@ -13,9 +13,14 @@ POST {{api}}  HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre_usuario": "dana",
+    "nombre_usuario": "Dana",
+    "apellido_usuario": "Hidalgo",
+    "clave_usuario": "dana",
     "rut": "20.360.8245",
-    "correo_electronico": "dana@gmail.com"
+    "correo_electronico": "dana@gmail.com",
+    "direccion": "7 Poniente",
+    "numero_cel": 954353291,
+    "tipousuario": 1
 }
 
 ### GET ID

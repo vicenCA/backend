@@ -22,14 +22,14 @@ export const getUsuario = async (req,res) => {
 export const createNewUsuario = async (req, res) => {
     
     const { nombre_usuario, apellido_usuario, clave_usuario, correo_electronico } = req.body;
-    let { rut, direccion, numero_cel, tipousuario } = req.body;
+    let { rut, direccion, numero_cel, tipousuario, foto_perfil } = req.body;
     if (nombre_usuario == null || apellido_usuario == null || clave_usuario == null || correo_electronico == null) {
         return res.status(400).json({msg: 'Bad Request. Please fill all fields'})
     }
     if (direccion == null) direccion  = "XX.XXX.XXX-X";
     if (direccion == null) direccion  = "vacío";
     if (numero_cel == null) numero_cel = 0;
-    if (tipousuario == null) tipousuario == 1;
+    if (tipousuario == null) tipousuario = 1;
 
     try {
         const pool = await getConnection();
@@ -42,6 +42,7 @@ export const createNewUsuario = async (req, res) => {
         .input("direccion", sql.VarChar, direccion)
         .input("numero_cel", sql.BigInt, numero_cel)
         .input("tipousuario", sql.Int, tipousuario)
+        .input("foto_perfil", sql.Image, foto_perfil)
         .query(queries.addNewUsuario);
         
         res.json({nombre_usuario, apellido_usuario, clave_usuario, rut, correo_electronico, direccion, numero_cel, tipousuario})
@@ -94,6 +95,7 @@ export const getTotalUsuarios = async (req, res) => {
 export const updateUsuarioByID = async (req, res) => {
     const { nombre_usuario, apellido_usuario, clave_usuario, rut, correo_electronico, direccion, numero_cel, tipousuario } = req.body
     const { id_usuario } = req.params
+    let { foto_perfil } = req.body
 
     if ((nombre_usuario == null || apellido_usuario == null || clave_usuario == null || rut == null || 
         correo_electronico == null || direccion == null || numero_cel == null || tipousuario == null))
@@ -111,9 +113,10 @@ export const updateUsuarioByID = async (req, res) => {
                             .input("numero_cel",sql.BigInt,numero_cel)
                             .input("tipousuario",sql.Int,tipousuario)
                             .input("id_usuario",sql.Int,id_usuario)
+                            .input("foto_perfil",sql.Image,foto_perfil)
                             .query(queries.updateUsuarioById)
 
-    res.json({nombre_usuario, apellido_usuario, clave_usuario, rut, correo_electronico, direccion, numero_cel, tipousuario})
+    res.json({nombre_usuario, apellido_usuario, clave_usuario, rut, correo_electronico, direccion, numero_cel, tipousuario, foto_perfil})
 }
 
 

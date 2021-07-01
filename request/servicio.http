@@ -47,3 +47,13 @@ Content-Type: application/json
 ####
 
 DELETE {{api}}/2 HTTP/1.1
+
+
+###
+
+GET {{api}}/count/12 HTTP/1.1
+
+
+###
+
+GET {{api}}/usuario/12 HTTP/1.1
